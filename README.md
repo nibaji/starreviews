@@ -8,7 +8,8 @@ A flutter package for displaying detailed star reviews
 
 ```yaml
 dependencies:  
-  starreviews: ^1.0.4
+  starreviews:
+    git: https://github.com/nibaji/starreviews.git
 ```
 
 ```console
@@ -22,7 +23,7 @@ import  'package:starreviews/starreviews.dart';
 ## Usage
 
 ```dart
-List<String> _names = ['Star 5', 'Star 4', 'Star 3', 'Star 2', 'Star 1'];  
+List<String> _names = ['⭐⭐⭐⭐⭐', '⭐⭐⭐⭐', '⭐⭐⭐', '⭐⭐', '⭐'];  
 List<double> _values = [0.5, 0.2, 0.8, 0.5, 0.1];
 ```
 ```dart
