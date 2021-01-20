@@ -1,7 +1,5 @@
 library starreviews;
 
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:starreviews/progress_bar/progress_bar_layout.dart';
 import 'package:starreviews/star_display.dart';
@@ -214,7 +212,9 @@ class StarReviewsHorizontal extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Row(
-        crossAxisAlignment: this.alignReviewsCenter ? CrossAxisAlignment.center : CrossAxisAlignment.start,
+        crossAxisAlignment: this.alignReviewsCenter
+            ? CrossAxisAlignment.center
+            : CrossAxisAlignment.start,
         children: <Widget>[
           Column(
             children: <Widget>[
