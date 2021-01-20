@@ -1,8 +1,8 @@
 library starreviews;
 
-import 'package:flutter/material.dart';
 import 'package:starreviews/progress_bar/progress_bar_layout.dart';
 import 'package:starreviews/star_display.dart';
+import 'package:flutter/material.dart';
 
 class StarReviews extends StatelessWidget {
   final int total;
@@ -113,30 +113,32 @@ class StarReviews extends StatelessWidget {
         ),
         Visibility(
           visible: showBottom,
-          child: Column(
-              children: this
-                  .starNames
-                  .map((e) => Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: <Widget>[
-                          ProgressBarLayout(
-                            starName: e,
-                            lineHeight: this.lineHeight,
-                            showBorder: showProgressBarBorder,
-                            value: this.values[this.starNames.indexOf(e)],
-                            showPercentage: this.showPercentage,
-                            starNameStyle: this.starNameStyle,
-                            percentageStyle: this.percentageStyle,
-                            valueColor: this.valueColor,
-                            progressBarBackgroundColor:
-                                this.progressBarBackgroundColor,
-                          ),
-                          SizedBox(
-                            height: this.spaceBetween,
-                          ),
-                        ],
-                      ))
-                  .toList()),
+          child: Container(
+            child: Column(
+                children: this
+                    .starNames
+                    .map((e) => Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: <Widget>[
+                            ProgressBarLayout(
+                              starName: e,
+                              lineHeight: this.lineHeight,
+                              showBorder: showProgressBarBorder,
+                              value: this.values[this.starNames.indexOf(e)],
+                              showPercentage: this.showPercentage,
+                              starNameStyle: this.starNameStyle,
+                              percentageStyle: this.percentageStyle,
+                              valueColor: this.valueColor,
+                              progressBarBackgroundColor:
+                                  this.progressBarBackgroundColor,
+                            ),
+                            SizedBox(
+                              height: this.spaceBetween,
+                            ),
+                          ],
+                        ))
+                    .toList()),
+          ),
         )
       ],
     ));
@@ -211,35 +213,40 @@ class StarReviewsHorizontal extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: MediaQuery.of(context).size.width * 3 / 4,
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         crossAxisAlignment: this.alignReviewsCenter
             ? CrossAxisAlignment.center
             : CrossAxisAlignment.start,
         children: <Widget>[
-          Column(
-            children: <Widget>[
-              Text(
-                this.average.toString(),
-                style: this.averageNumberTextStyle,
-              ),
-              StarDisplay(
-                value: this.average,
-                size: starSize,
-                color: this.starColor,
-                starCounts: this.starNames.length,
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Text(
-                '${this.total} ratings',
-                style: TextStyle(fontSize: 10),
-              )
-            ],
+          Container(
+            width: MediaQuery.of(context).size.width * (3 / 4) * (1 / 4),
+            child: Column(
+              children: <Widget>[
+                Text(
+                  this.average.toString(),
+                  style: this.averageNumberTextStyle,
+                ),
+                StarDisplay(
+                  value: this.average,
+                  size: starSize,
+                  color: this.starColor,
+                  starCounts: this.starNames.length,
+                ),
+                // SizedBox(
+                //   height: 10,
+                // ),
+                Text(
+                  '${this.total} ratings',
+                  style: TextStyle(fontSize: 10),
+                )
+              ],
+            ),
           ),
-          SizedBox(
-            width: this.spaceBetween,
-          ),
+          // SizedBox(
+          //   width: this.spaceBetween,
+          // ),
           if (!this.showOnlyAverage) ...[
             Expanded(
               child: StarReviews(

@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:starreviews/progress_bar/progress_bar.dart';
+import 'package:flutter/material.dart';
 
 class ProgressBarLayout extends StatelessWidget {
   final String starName;
@@ -17,7 +17,7 @@ class ProgressBarLayout extends StatelessWidget {
   ProgressBarLayout(
       {Key key,
       this.starName,
-        this.lineHeight = 5,
+      this.lineHeight = 5,
       this.showBorder = true,
       this.showPercentage = true,
       this.starNameStyle = const TextStyle(fontSize: 12),
@@ -39,12 +39,21 @@ class ProgressBarLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
-          Text(this.starName, style: this.starNameStyle),
+          Container(
+            width: MediaQuery.of(context).size.width * (3 / 4) * (1 / 4),
+            child: Text(
+              this.starName,
+              style: this.starNameStyle,
+              textAlign: TextAlign.right,
+            ),
+          ),
           SizedBox(
             width: 20,
           ),
-          Expanded(
+          Container(
+            width: MediaQuery.of(context).size.width * (3 / 4) * (1.5 / 4),
             child: ProgressBar(
               lineHeight: this.lineHeight,
               showBorder: this.showBorder,
