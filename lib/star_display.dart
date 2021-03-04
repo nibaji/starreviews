@@ -7,13 +7,12 @@ class StarDisplay extends StatelessWidget {
   final int starCounts;
 
   const StarDisplay(
-      {Key key,
-        this.starCounts = 5,
-        this.value = 0,
-        this.size = 16,
-        this.color = const Color(0xffffd900)})
-      : assert(value != null),
-        super(key: key);
+      {Key? key,
+      this.starCounts = 5,
+      this.value = 0,
+      this.size = 16,
+      this.color = const Color(0xffffd900)})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,8 +23,8 @@ class StarDisplay extends StatelessWidget {
           (value - index >= 0.8)
               ? Icons.star
               : (value - index >= 0.3)
-              ? Icons.star_half
-              : Icons.star_border,
+                  ? Icons.star_half
+                  : Icons.star_border,
           color: this.color,
           size: this.size,
         );

@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 
 class ProgressBar extends StatelessWidget {
-  final Color valueColor;
-  final Color backgroundColor;
-  final double value;
+  final Color? valueColor;
+  final Color? backgroundColor;
+  final double? value;
 
   final double lineHeight;
 
   final bool showBorder;
 
   ProgressBar(
-      {Key key,
+      {Key? key,
       this.valueColor,
       this.lineHeight = 5,
       this.showBorder = true,
@@ -34,12 +34,11 @@ class ProgressBar extends StatelessWidget {
           height: this.lineHeight,
           child: LinearPercentIndicator(
             lineHeight: this.lineHeight,
-            padding: null,
             linearStrokeCap: LinearStrokeCap.roundAll,
-            percent: this.value,
+            percent: this.value!,
             // percent filled
             progressColor: this.valueColor,
-            backgroundColor: this.backgroundColor,
+            backgroundColor: this.backgroundColor!,
           ),
         ),
       ),

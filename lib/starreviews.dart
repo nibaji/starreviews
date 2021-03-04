@@ -29,9 +29,9 @@ class StarReviews extends StatelessWidget {
   final double spaceBetween;
 
   StarReviews(
-      {Key key,
-      @required this.total,
-      @required this.starNames,
+      {Key? key,
+      required this.total,
+      required this.starNames,
       this.starSize = 16,
       this.lineHeight = 10,
       this.spaceBetween = 11,
@@ -45,20 +45,11 @@ class StarReviews extends StatelessWidget {
       this.percentageStyle = const TextStyle(fontSize: 12),
       this.valueColor = const Color(0xff656565),
       this.progressBarBackgroundColor = Colors.white,
-      @required this.average,
-      @required this.values})
-      : assert(total != null),
-        super(key: key) {
-    if (values == null) {
-      throw ArgumentError('value cannot be empty');
-    }
-
+      required this.average,
+      required this.values})
+      : super(key: key) {
     if (starNames.length != values.length) {
       throw ArgumentError('startNames and values\' length different');
-    }
-
-    if (starNames == null) {
-      throw ArgumentError('starNames cannot be empty');
     }
   }
 
@@ -174,9 +165,9 @@ class StarReviewsHorizontal extends StatelessWidget {
   final bool alignReviewsCenter;
 
   StarReviewsHorizontal(
-      {Key key,
-      @required this.total,
-      @required this.starNames,
+      {Key? key,
+      required this.total,
+      required this.starNames,
       this.starSize = 12,
       this.spaceBetweenBars = 5,
       this.lineHeight = 7,
@@ -193,20 +184,11 @@ class StarReviewsHorizontal extends StatelessWidget {
           const TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
       this.valueColor = const Color(0xff656565),
       this.progressBarBackgroundColor = Colors.white,
-      @required this.average,
-      @required this.values})
-      : assert(total != null),
-        super(key: key) {
-    if (values == null) {
-      throw ArgumentError('value cannot be empty');
-    }
-
+      required this.average,
+      required this.values})
+      : super(key: key) {
     if (starNames.length != values.length) {
       throw ArgumentError('startNames and values\' length different');
-    }
-
-    if (starNames == null) {
-      throw ArgumentError('starNames cannot be empty');
     }
   }
 
